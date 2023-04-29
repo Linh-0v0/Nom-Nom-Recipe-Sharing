@@ -6,6 +6,7 @@ import Signup from './pages/Signup'
 import DetailRecipePage from './pages/DetailRecipePage'
 import PublishRecipe from './pages/PublishRecipe'
 import AllRecipe from './pages/AllRecipe'
+import UserProfile from './pages/UserProfile'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Detail" element={<DetailRecipePage/>} />
           <Route path="/PublishRecipe" element={<PublishRecipe/>} />
           <Route path="/AllRecipe" element={<AllRecipe/>} />
+          <Route path="/User-profile" element={<UserProfile/>} />
         </Routes>
       </BrowserRouter>
     </>
