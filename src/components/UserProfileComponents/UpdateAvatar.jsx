@@ -22,7 +22,7 @@ const UpdateAvatar = props => {
   Modal.setAppElement('#root')
 
   useEffect(() => {
-    console.log('USERDATA', props)
+    // console.log('USERDATA', props)
     axios
       .get(`http://localhost:3000/user/get-avatar/${props.user.id}`)
       .then(response => {

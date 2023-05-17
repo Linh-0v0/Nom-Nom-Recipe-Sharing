@@ -12,66 +12,15 @@ import StickyBox from 'react-sticky-box'
 // import { LLogin } from '../components/Login'
 
 const DetailRecipePage = () => {
-  // let config = {
-  //   method: 'get',
-  //   maxBodlength: Infinity,
-  //   url: 'http://localhost:3000/recipe/8'
-  // }
-
   const { id } = useParams()
-  // const [data, setData] = useState({})
-  // const [isLoading, setIsLoading] = useState(true)
 
-  // useEffect(() => {
-  //   axios
-  //     .request(config)
-  //     .then(res => {
-  //       setData(res && res.data)
-  //       // console.log(data)
-  //       setIsLoading(false)
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //     })
-  // }, [])
+  const { recipe, dietary } = FetchRecipeByID(id)
 
-  // const recipe = FetchRecipeByID(id)
+  // console.log('recipe ne', recipe)
 
-  // const { recipe, ingredients, nutritions } = FetchRecipeByID(id)
-  const { recipe } = FetchRecipeByID(id)
-  // const [ingredients, setIngredients] = useState([])
-  // const [nutritions, setNutritions] = useState([])
+  // console.log('Troi oi recipe ne', recipe)
 
-  // if (!recipe) {
-  //   return <div>Loading data...</div>
-  // }
-
-  // let configIng = {
-  //   method: 'post',
-  //   url: `http://localhost:3000/recipe/nutritions/total-ing-nutrition-facts/${id}`,
-  //   data: {
-  //     servingNum: `${recipe.serving_num}`
-  //   }
-  // }
-
-  // let configNutrition = {
-  //   method: 'post',
-  //   url: `http://localhost:3000/recipe/nutritions/total-nutrition-facts/${id}`,
-  //   data: {
-  //     servingNum: `${recipe.serving_num}`
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   axios.all([axios.request(configIng), axios.request(configNutrition)]).then(
-  //     axios.spread((resIng, resNutri) => {
-  //       console.log('ing ', resIng, 'Nug ', resNutri)
-  //       setIngredients(resIng && resIng.data.ingredientFactsOfRecipe)
-  //       setNutritions(resNutri && resNutri.data.ingredientFactsOfRecipe[0])
-  //     })
-  //   )
-  // }, [])
-
+  console.log('cai recipe ne', recipe, dietary)
   return (
     <>
       {/* TODO CSS clashes with PublicRecipe.module.css page [FIX] */}
@@ -81,13 +30,8 @@ const DetailRecipePage = () => {
           className={`${styles.mainContainer} ${styles.flexRow}`}
           style={{ display: 'flex', alignItems: 'flex-start' }}
         >
-          <RecipeDetail
-            id={id}
-            recipe={recipe}
-            // ingredients={ingredients}
-            // nutritions={nutritions}
-          />
-          {/* <RecipeDetail recipe={recipe} id={id} /> */}
+          <RecipeDetail id={id} recipe={recipe} dietary={dietary} />
+
           <StickyBox offsetTop={20} offsetBottom={20} style={{ width: '30%' }}>
             <RecipeReview recipe={recipe} id={id} />
           </StickyBox>

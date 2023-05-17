@@ -51,6 +51,19 @@ export const dietFetch = async userData => {
   }
 }
 
+export const FetchUserRecipe = async userData => {
+  const [userRecipes, setUserRecipes] = useState([])
+
+  let config = {
+    method: 'GET',
+    url: `http://localhost:3000/recipe/user/${userData.user.id}`
+  }
+
+  const res = await axios.request(config).then(res && setUserRecipes(res.data))
+
+  return userRecipes
+}
+
 const accesstoken = localStorage.getItem('accesstoken')
 
 const AuthContextProvider = props => {
@@ -59,6 +72,8 @@ const AuthContextProvider = props => {
   const [dietData, setDietData] = useState(null)
 
   const userCollectionData = FetchUserCollections()
+
+  // const userRecipes = FetchUserRecipe(userData)
 
   const getUserSession = async () => {
     if (accesstoken) {
@@ -125,7 +140,13 @@ const AuthContextProvider = props => {
   return (
     // <AuthContext.Provider value={{ userData, backendMsg }}>
     <AuthContext.Provider
-      value={{ userData, logout, dietData, dietFetch, userCollectionData }}
+      value={{
+        userData,
+        logout,
+        dietData,
+        dietFetch,
+        userCollectionData
+      }}
     >
       {props.children}
     </AuthContext.Provider>

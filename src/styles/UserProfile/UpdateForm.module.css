@@ -2,24 +2,22 @@
 @import url(../RecipeDetailPage/DetailRecipePage.module.css);
 
 .updateForm {
-  width: 40%;
+  width: 100%;
   height: fit-content;
-  background-color: var(--light-orange);
+  /* background-color: var(--light-orange); */
   position: relative;
-  top: 200px;
-  padding: 20px;
+  /* padding: 20px; */
   gap: 16px;
   align-items: center;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   /* transition: 2s; */
   /* justify-content: center; */
 }
 
 .updateName {
   width: 100%;
-  /* height: fit-content; */
+  height: fit-content;
   background-color: white;
-  /* justify-content: center; */
   align-items: center;
   border-radius: 8px;
 }
@@ -38,6 +36,7 @@
   border: none !important;
   outline: none;
   padding: 8px !important;
+  font: var(--primary-font);
 }
 
 .updateNote {
@@ -49,9 +48,11 @@
 
 .updateNote > textarea {
   width: 100%;
+  padding: 1em;
   outline: none;
   border: none;
   height: 100%;
+  border-radius: 8px;
 }
 
 .noteLabel {
@@ -90,4 +91,33 @@
   font-size: 24px;
   font-weight: bold;
   /* display: flex; */
+}
+
+.inputFieldContainer {
+  width: 100%;
+  height: fit-content;
+  border-radius: inherit;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 8px;
+}
+
+.inputFieldContainer:nth-child(1),
+.inputFieldContainer:nth-child(2) {
+  margin-right: 20px;
+}
+
+.inputFieldContainer>.inputField {
+  
+}
+
+.imageButton {
+  /* width: 100%; */
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: inherit;
+  /* height: inherit; */
+  padding: 28px 30px;
 }

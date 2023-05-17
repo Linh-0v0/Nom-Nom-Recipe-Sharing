@@ -23,7 +23,6 @@ export const FetchIngAndNutri = (id, servingNum) => {
   useEffect(() => {
     axios.all([axios.request(configIng), axios.request(configNutrition)]).then(
       axios.spread((resIng, resNutri) => {
-        console.log('ing ', resIng, 'Nug ', resNutri)
         setIngredients(resIng && resIng.data.ingredientFactsOfRecipe)
         setNutritions(resNutri && resNutri.data.ingredientFactsOfRecipe[0])
       })

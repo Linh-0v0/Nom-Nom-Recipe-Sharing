@@ -6,23 +6,65 @@ import { UpdateButton } from '../UpdateProfileButton'
 import { UpdateForm } from '../../FormComponents/UpdateForm'
 import { RecipeTemp } from './RecipeTemp'
 // import { CollectionRecipes } from './CollectionRecipes'
-
+import useModal from '../../ModalComponents/useModal'
+import Modal from '../../ModalComponents/Modal'
+import axios from 'axios'
 const Collections = props => {
   const handleDisplay = () => {
     props.setCurrentStyle('flex')
   }
-  const handleClick = () => {
-    // alert('clicked')
 
-    props.setUpdateForm(
-      <UpdateForm
-        collection={props.collection}
-        setUpdateForm={props.setUpdateForm}
-        setCurrentStyle={props.setCurrentStyle}
-      />
-    )
-    // handleDisplay()
-    props.setCurrentStyle('flex')
+  const { isShowing, toggle } = useModal(true)
+
+  const [name, setName] = useState(props.collection.name)
+  const [note, setNote] = useState(props.collection.note)
+
+  let config = {
+    method: 'PUT',
+    url: `http://localhost:3000/collection/${props.collection.collection_id}`,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: localStorage.accesstoken
+    },
+    data: { name: name, note: note }
+  }
+
+  const refreshPage = () => {
+    window.location.reload(false)
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      const res = await axios.request(config)
+      // setMessage(res.data.message)
+      refreshPage()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  let configDelete = {
+    method: 'DELETE',
+    url: `http://localhost:3000/collection/${props.collection.collection_id}`,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: localStorage.accesstoken
+    }
+  }
+
+  const handleDelete = async () => {
+    try {
+      const res = await axios.request(configDelete)
+      alert(res.data.message)
+      refreshPage()
+    } catch (error) {
+      alert(error)
+    }
+  }
+
+  const handleClick = () => {
+    toggle()
   }
 
   // const handleSetSection = () => {
@@ -74,7 +116,33 @@ const Collections = props => {
       {/* <button onClick={handleClick} className={styles.updateDeleteContainer}>
         Update
       </button> */}
-      <UpdateButton fn={handleClick} option={'Update'} />
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+        btnMsg={'Confirm'}
+        title={'Update collection'}
+        modalMsg={
+          <UpdateForm
+            // collection={props.collection}
+            setUpdateForm={props.setUpdateForm}
+            setCurrentStyle={props.setCurrentStyle}
+            setName={setName}
+            setNote={setNote}
+            name={name}
+            note={note}
+          />
+        }
+        closeable={true}
+        titleIcon={<i className="fa-solid fa-circle-check"></i>}
+        btnFn={
+          // console.log('hello') // navigate('/', { replace: true })
+          handleSubmit
+        }
+      />
+      <div className={`${styles.updateDeleteContainer} ${styles.flexRow}`}>
+        <UpdateButton fn={handleClick} option={'Update'} />
+        <UpdateButton fn={handleDelete} option={'Delete'}></UpdateButton>
+      </div>
     </div>
   )
 }

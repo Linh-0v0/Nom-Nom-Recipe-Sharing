@@ -95,7 +95,8 @@
 
 .buttonContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  border-radius: inherit;
 }
 
 .seeMoreButton {
@@ -109,6 +110,22 @@
   transition: background-color 0.3s ease-in-out;
 }
 
+.updateButton {
+  background-color: #f2f2f2;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-top-right-radius: 70px;
+  border-bottom-left-radius: inherit;
+  transition: background-color 0.3s ease-in-out;
+}
+
 .seeMoreButton:hover {
+  background-color: #ddd;
+}
+
+.updateButton:hover {
   background-color: #ddd;
 }

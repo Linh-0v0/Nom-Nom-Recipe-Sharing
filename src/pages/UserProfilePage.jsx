@@ -13,7 +13,7 @@ import { withoutAuth } from '../components/SessionVerification/AuthChecking'
 const UserProfileMainPage = () => {
   const [currentStyle, setCurrentStyle] = useState('none')
 
-  const [updateForm, setUpdateForm] = useState(<div></div>)
+  const [updateForm, setUpdateForm] = useState()
   const [section, setSection] = useState(
     <CollectionSection
       setCurrentStyle={setCurrentStyle}
@@ -44,6 +44,14 @@ const UserProfileMainPage = () => {
           className={`${styles.flexRow} ${styles.profileMainContainer}`}
           style={{ display: 'flex', alignItems: 'flex-start' }}
         >
+          {/* <div
+            className={`${styles.updateFormBackground}`}
+            style={{ display: `${currentStyle}` }}
+          > */}
+          {/* <UpdateForm /> */}
+          {updateForm}
+          {/* </div> */}
+
           <BackToTopButton />
 
           {/* Section container fixed width, height fit content, display grid 3 */}
@@ -62,13 +70,6 @@ const UserProfileMainPage = () => {
             display={display}
             setDisplay={setDisplay}
           ></UserProfileSide>
-        </div>
-        <div
-          className={`${styles.updateFormBackground}`}
-          style={{ display: `${currentStyle}` }}
-        >
-          {updateForm}
-          {/* <UpdateForm /> */}
         </div>
       </div>
     </>
