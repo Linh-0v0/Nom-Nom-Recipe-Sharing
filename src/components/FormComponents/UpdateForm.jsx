@@ -8,7 +8,7 @@ export const UpdateForm = props => {
   // const [name, setName] = useState(props.collection.name)
   // const [note, setNote] = useState(props.collection.note)
   // const [image, setImage] = useState('')
-  const [message, setMessage] = useState('')
+  // const [message, setMessage] = useState('')
 
   const handleChangeName = e => {
     props.setName(e.target.value)
@@ -18,11 +18,10 @@ export const UpdateForm = props => {
     props.setNote(e.target.value)
   }
 
-  const handleCloseButton = () => {
-    console.log(typeof props.setUpdateForm)
-    props.setUpdateForm(<div></div>)
-    props.setCurrentStyle('none')
-  }
+  // const handleCloseButton = () => {
+  //   props.setUpdateForm(<div></div>)
+  //   props.setCurrentStyle('none')
+  // }
 
   return (
     <form className={`${styles.updateForm} ${styles.flexColumn}`}>

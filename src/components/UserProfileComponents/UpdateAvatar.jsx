@@ -22,7 +22,7 @@ const UpdateAvatar = props => {
   Modal.setAppElement('#root')
 
   useEffect(() => {
-    console.log('USERDATA', props)
+    // console.log('USERDATA', props)
     axios
       .get(`http://localhost:3000/user/get-avatar/${props.user.id}`)
       .then(response => {
@@ -37,6 +37,7 @@ const UpdateAvatar = props => {
   }, [])
 
   const handleChange = e => {
+    console.log('Change')
     const selectedFile = e.target.files[0]
     setModalIsOpen(true)
 
@@ -120,48 +121,17 @@ const UpdateAvatar = props => {
 
   const handleCropChange = crop => {
     setCrop(crop)
+
+    console.log(crop)
     if (file && crop.width && crop.height) {
       getCroppedImage(file, crop)
     }
   }
 
-  // const getCroppedImage = (file, crop) => {
-  //   const image = new Image()
-  //   image.src = URL.createObjectURL(file)
+  const getCroppedImage = async (file, crop) => {
+    if (file && crop.width && crop.height) {
+      const image = await createImageBitmap(file)
 
-  //   image.onload = () => {
-  //     const canvas = document.createElement('canvas')
-  //     canvas.width = crop.width
-  //     canvas.height = crop.height
-
-  //     const ctx = canvas.getContext('2d')
-  //     ctx.drawImage(
-  //       image,
-  //       crop.x,
-  //       crop.y,
-  //       crop.width,
-  //       crop.height,
-  //       0,
-  //       0,
-  //       crop.width,
-  //       crop.height
-  //     )
-
-  //     canvas.toBlob(
-  //       blob => {
-  //         setCroppedImage(blob)
-  //       },
-  //       file.type,
-  //       1
-  //     )
-  //   }
-  // }
-
-  const getCroppedImage = (file, crop) => {
-    const image = new Image()
-    image.src = URL.createObjectURL(file)
-
-    image.onload = () => {
       const canvas = document.createElement('canvas')
       canvas.width = crop.width
       canvas.height = crop.height
@@ -179,6 +149,8 @@ const UpdateAvatar = props => {
         crop.height
       )
 
+      console.log(ctx)
+
       canvas.toBlob(
         blob => {
           const croppedFile = new File([blob], file.name, {
@@ -186,6 +158,7 @@ const UpdateAvatar = props => {
             lastModified: file.lastModified
           })
           setCroppedImage(croppedFile)
+          console.log(croppedFile)
         },
         file.type,
         1
@@ -193,10 +166,15 @@ const UpdateAvatar = props => {
     }
   }
 
+  const sleep = ms => {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
   const handleSubmit = async e => {
     e.preventDefault()
 
     if (croppedImage) {
+      console.log(croppedImage)
+      await sleep(1000)
       const formData = new FormData()
       console.log('croppedImage', croppedImage)
       console.log('file.name', file.name)
@@ -218,10 +196,6 @@ const UpdateAvatar = props => {
       }
     }
   }
-
-  useEffect(() => {
-    console.log(croppedImage)
-  }, [croppedImage])
 
   return (
     <>
@@ -261,17 +235,27 @@ const UpdateAvatar = props => {
           )}
         </div>
 
-        <ReactCrop
-          crop={crop}
-          onChange={handleCropChange}
-          style={{ maxWidth: '500px' }}
-          onComplete={crop => {
-            // setCroppedImage(crop)
-            console.log('CROPPED IMAGE:', croppedImage)
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-around'
           }}
         >
-          {file && <img src={URL.createObjectURL(file)} alt="Avatar" />}
-        </ReactCrop>
+          <ReactCrop
+            aspect={1 / 1}
+            ruleOfThirds={true}
+            crop={crop}
+            onChange={handleCropChange}
+            // style={{ maxWidth: '500px' }}
+            onComplete={crop => {
+              getCroppedImage(file, crop)
+              console.log('CROPPED IMAGE:', croppedImage)
+            }}
+          >
+            {file && <img src={URL.createObjectURL(file)} alt="Avatar" />}
+          </ReactCrop>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <div>
@@ -282,6 +266,7 @@ const UpdateAvatar = props => {
               onChange={handleChange}
             />
           </div>
+          <br />
           <Button1 type="submit" options={'Submit'} />
         </form>
         <span className={`${styles.closeIconDiv}`} onClick={closeModal}>

@@ -16,8 +16,11 @@ const DetailRecipePage = () => {
 
   const { recipe, dietary } = FetchRecipeByID(id)
 
-  console.log('Troi oi recipe ne', recipe)
+  // console.log('recipe ne', recipe)
 
+  // console.log('Troi oi recipe ne', recipe)
+
+  console.log('cai recipe ne', recipe, dietary)
   return (
     <>
       {/* TODO CSS clashes with PublicRecipe.module.css page [FIX] */}

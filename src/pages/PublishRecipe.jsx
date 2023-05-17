@@ -48,7 +48,6 @@ const PublishRecipe = () => {
   }
 
   const handleIngredientChange = (e, igd) => {
-    console.log('Vo roi ne', e)
     let newIngredients = [...ingredients]
     for (let i = 0; i < newIngredients.length; i++) {
       if (newIngredients[i].id === e.value) {
@@ -111,8 +110,6 @@ const PublishRecipe = () => {
   const handleUploadImage = () => {
     file.current.click()
   }
-
-  console.log('Cai duration ne ba', duration)
 
   let config = {
     method: 'post',
@@ -385,10 +382,7 @@ const PublishRecipe = () => {
             <div className={styles.title}>Ingredients:</div>
             <ul className={`${styles.addIngredientContainer}`}>
               {ingredients.map((ingredient, igd) => (
-                <div
-                  key={igd}
-                  // onChange={e => handleIngredientChange(e, igd)}
-                >
+                <div key={igd}>
                   <div
                     className={`${styles.ingredientInputContainer} ${styles.flexRow} ${styles.inputFieldContainer}`}
                   >

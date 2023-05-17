@@ -9,16 +9,13 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const Header = () => {
-  const tabList = [
-    { key: 1, label: 'Recipes', link: '' },
-    { key: 2, label: 'recipes', link: '' },
-    { key: 3, label: 'recipes', link: '' },
-    { key: 4, label: 'About us', link: '' }
-  ]
-
-  const items = tabList.map(tab => <li key={tab.key}>{tab.label}</li>)
-
   const { userData } = useContext(AuthContext)
+
+  const tabList = [
+    { key: 1, name: 'Recipes', link: '/allRecipe', active: false },
+    { key: 2, name: 'Refrigerator', link: '/refrigerator', active: false },
+    { key: 3, name: 'About us', link: '/AboutUS', active: false }
+  ]
   return (
     <header className={`${styles.header} ${styles.flexRow}`}>
       <div
@@ -33,7 +30,7 @@ const Header = () => {
       {/* <ul className={`${styles.flexItemCenter}`}>{items}</ul> */}
       {/* TODO Make items clickable */}
       {/* </nav> */}
-      <NavBar></NavBar>
+      <NavBar tabList={tabList}></NavBar>
       <div
         className={`${styles.loginSignupContainer} ${styles.flexItemCenter}`}
       >

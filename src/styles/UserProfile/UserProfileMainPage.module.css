@@ -17,6 +17,7 @@
   /* width: 30%; */
   align-self: flex-end;
   font: var(--primary-font);
+  font-family: Noto Sans JP;
   font-weight: 900;
 
   padding-left: 40px;
@@ -33,7 +34,10 @@
   padding: 0 !important;
   border-radius: 16px;
   background-color: var(--light-orange);
-  font: var(--primary-font);
+  /* font: var(--primary-font)
+  font; */
+  font-family: Noto Sans JP;
+
   display: none;
   transition-duration: 0.5s;
 }
@@ -44,8 +48,15 @@
 
   width: 160px !important;
   font-size: 16px;
-  /* color: var(--black-purple) !important; */
   border-bottom-right-radius: inherit;
+  color: white !important;
+}
+
+.createButton:hover {
+  /* align-self: flex-end;
+  justify-self: flex-end; */
+  color: transparent;
+  color: var(--black-purple) !important;
 }
 
 .imageFormControl {
@@ -66,10 +77,20 @@
   justify-content: center;
   align-items: center;
   /* background-color: red; */
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black-purple);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.imgContainer > img {
-  width: 100%;
+.imgContainer:hover {
+  /* asda */
+  opacity: 0.8;
 }
 
 .formControl {
@@ -202,7 +223,6 @@
 
 .userProfileSideMainContainer {
   width: 400px;
-  height: 1000px;
   gap: 20px;
   justify-self: flex-end;
 }

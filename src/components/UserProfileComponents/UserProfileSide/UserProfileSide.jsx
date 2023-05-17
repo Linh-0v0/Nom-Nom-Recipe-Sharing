@@ -5,7 +5,7 @@ import { UserProfileTab } from './UserProfileTab'
 import StickyBox from 'react-sticky-box'
 const UserProfileSide = props => {
   return (
-    <StickyBox offsetTop={20} offsetBottom={20}>
+    <StickyBox offsetTop={20} offsetBottom={0}>
       <div
         className={`${styles.userProfileSideMainContainer} ${styles.flexColumn}`}
       >

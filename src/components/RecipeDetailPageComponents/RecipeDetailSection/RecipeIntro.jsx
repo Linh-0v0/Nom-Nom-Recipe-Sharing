@@ -2,17 +2,26 @@ import styles from '../../../styles/RecipeDetailPage/DetailRecipePage.module.css
 
 import timeIcon from '../../../images/Nom nom icons/Time_atack.png'
 import peopleIcon from '../../../images/Nom nom icons/User_alt_fill.png'
+import { useState } from 'react'
 
 const RecipeIntro = props => {
   if (props.recipe.commonInfo.dietType == null) {
     props.recipe.commonInfo.dietType = 'none'
   }
 
-  console.log('Dietary in common info', props.recipe.commonInfo.dietType)
+  // console.log('Dietary in common info', props.recipe.commonInfo.dietType)
 
-  const dietary = props.recipe.commonInfo.dietType.map(
-    (ele, id) => ele.name + ', '
-  )
+  const dietary = props.recipe.commonInfo.dietType
+    ? props.recipe.commonInfo.dietType.map((ele, id) => (
+        <div
+          key={id}
+          className={styles.label}
+          style={{ marginRight: '8px', padding: '4px', borderRadius: '8px' }}
+        >
+          {ele.name}
+        </div>
+      ))
+    : null
 
   return (
     <div
@@ -27,7 +36,35 @@ const RecipeIntro = props => {
         </div>
         <div className={`${styles.commonInfoEle} ${styles.flexRow}`}>
           <i class="fa-solid fa-user"></i>
-          <div>{props.recipe.commonInfo.serving}</div>
+
+          <div
+          // onMouseUp={e => {
+          //   console.log('hello')
+          //   handleChange(e)
+          // }}
+          >
+            <input
+              type="number"
+              min={1}
+              defaultValue={parseInt(props.recipe.commonInfo.serving)}
+              // value={parseInt(props.recipe.commonInfo.serving)}
+              // placeholder={parseInt(props.recipe.commonInfo.serving)}
+              onChange={e => props.handleChange(e)}
+              style={{
+                width: '60px',
+                borderStyle: 'none',
+                backgroundColor: 'whitesmoke',
+                height: '20px',
+                margin: '0',
+                border: '0',
+                outline: 'none',
+                padding: '0 0 0 8px',
+                textAlign: 'right'
+              }}
+            />{' '}
+            people
+          </div>
+          {/* <div><input type='number' min={1} value={props.currentSize} onChange={e => props.setCurrentSize(e)}/>{props.recipe.commonInfo.serving} people</div> */}
         </div>
         {/* <div className={`${styles.commonInfoEle} ${styles.flexRow}`}>
           <div>

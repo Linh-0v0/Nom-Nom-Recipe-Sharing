@@ -55,15 +55,6 @@ const CollectionSection = props => {
     file.current.click()
   }
 
-  const camera = useRef(null)
-  const handleHover = () => {
-    camera.current.style.display = 'block'
-  }
-
-  const handleOut = () => {
-    camera.current.style.display = 'none'
-  }
-
   const form = useRef(null)
   const handleDisplay = () => {
     form.current.style.display = 'flex'
@@ -117,7 +108,11 @@ const CollectionSection = props => {
     >
       <div className={`${styles.createNewContainer} ${styles.flexColumn}`}>
         <DefaultButton
-          options={<i class="fa-solid fa-plus fa-xl"></i>}
+          options={
+            <div>
+              <i className="fa-solid fa-plus"></i>
+            </div>
+          }
           style={style}
           className={`${styles.createNewButton}`}
           fn={handleDisplay}
@@ -147,6 +142,7 @@ const CollectionSection = props => {
               onChange={e => onFileChange(e)}
             ></input>
             <div
+
               className={`${styles.imageFormControl}`}
               onClick={handleClickImage}
             >

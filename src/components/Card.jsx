@@ -1,6 +1,7 @@
 import styles from '../styles/Card.module.css'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
+import { AuthContext } from './SessionVerification/AuthContext'
 
 function CardImage (props) {
   const [imageURL, setImageURL] = useState(
@@ -40,6 +41,19 @@ function CardImage (props) {
   )
 }
 
+function UpdateRecipeButton ({ userID, fn }) {
+  const { userData } = useContext(AuthContext)
+
+  if (userID == userData.user.id) {
+    return (
+      <button onClick={fn} className={`${styles.updateButton}`}>
+        Update
+      </button>
+    )
+  }
+  return null
+}
+
 function CardContent (props) {
   return (
     <div className={styles.CardContent}>
@@ -72,14 +86,19 @@ export default class Card extends React.Component {
           />
         </div>
         <div className={styles.buttonContainer}>
+          <UpdateRecipeButton fn={this.props.fn} userID={this.props.userID} />
           <button className={styles.seeMoreButton}>See More</button>
+          {/* <button className={styles.seeMoreButton}>Update</button> */}
         </div>
+        {/* {this.props.author_id ==} */}
       </div>
     )
   }
 }
 
 Card.defaultProps = {
+  // userID: '',
+  fn: '',
   title: 'Template - Card Title',
   category: ['asd', 'asd1', 'asd2'],
   location: 'Location label',
