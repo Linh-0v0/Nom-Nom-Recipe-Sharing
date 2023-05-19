@@ -112,7 +112,6 @@ const Refrigerator = () => {
       <Header />
       <BackToTopButton />
       <div className={styles.text}>
-        <h1>Hello</h1>
         <div className={styles.form_Container}>
           <form
             onSubmit={handleSubmit}

@@ -121,7 +121,6 @@ const AllRecipe = () => {
       <Header />
       <BackToTopButton />
       <div className={styles.text}>
-        <h1>Hello</h1>
         <SearchBar
           // search={
           //   <input

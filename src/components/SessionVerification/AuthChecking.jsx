@@ -47,11 +47,7 @@ const withoutAuth = (
       }
     }, [userData, navigate, options.redirectUnauthenticated, loading])
 
-    return loading ? (
-      <button onClick={(window.location.href = '/')}></button>
-    ) : (
-      <Component {...props} />
-    )
+    return loading ? <button></button> : <Component {...props} />
   }
 
   return UnauthRoute
