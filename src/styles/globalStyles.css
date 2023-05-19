@@ -128,6 +128,11 @@ input {
   font-family: Noto Sans JP !important;
 }
 
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+}
+
 /* body::-webkit-scrollbar {
   width: 0.5rem;
   border-radius: 10px;

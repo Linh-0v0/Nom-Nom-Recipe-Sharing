@@ -149,7 +149,7 @@ const CollectionSection = props => {
               justifyContent: 'flex-end'
             }}
           >
-            <i class="fa-solid fa-xmark fa-xl" onClick={handleHide}></i>
+            <i className="fa-solid fa-xmark fa-xl" onClick={handleHide}></i>
           </div>
 
           <div className={`${styles.flexRow}`} style={{ width: '100%' }}>

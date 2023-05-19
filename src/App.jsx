@@ -17,7 +17,7 @@ import MemberTable from './components/AboutUs/AboutUs'
 
 // import CollectionRecipes from './components/UserProfileComponents/CollectionRecipes'
 
-function App () {
+function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

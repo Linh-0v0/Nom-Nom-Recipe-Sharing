@@ -46,15 +46,18 @@ export const RecipeSection = props => {
 
   const { userData } = useContext(AuthContext)
   // console.log('user data ', userData)
-
+  let config
   // const userID = userData.user.id
-  let config = {
-    method: 'get',
-    url: `http://localhost:3000/recipe/user/${userData.user.id}`,
-    headers: {
-      Authorization: localStorage.accesstoken
+  if (userData != null) {
+    config = {
+      method: 'get',
+      url: `http://localhost:3000/recipe/user/${userData.user.id}`,
+      headers: {
+        Authorization: localStorage.accesstoken
+      }
     }
   }
+
   const [recipes, setRecipes] = useState([])
   useEffect(() => {
     axios
@@ -174,7 +177,7 @@ export const RecipeSection = props => {
       />
       <div className={`${styles.createNewContainer} ${styles.flexColumn}`}>
         <DefaultButton
-          options={<i class="fa-solid fa-plus fa-xl"></i>}
+          options={<i className="fa-solid fa-plus fa-xl"></i>}
           style={style}
           className={`${styles.createNewButton}`}
           fn={handleCreateNewRecipe}

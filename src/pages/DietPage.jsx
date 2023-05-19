@@ -15,7 +15,6 @@ const Diet = () => {
   //diet data
   const { dietData } = useContext(AuthContext)
   const { userData } = useContext(AuthContext)
-
   // useEffect(() =>{
   //   getDietaryData();
   // },[])
@@ -45,7 +44,7 @@ const Diet = () => {
     fetchData()
   }, [])
 
-  function waitForCheckedDivContent () {
+  function waitForCheckedDivContent() {
     return new Promise((resolve, reject) => {
       const interval = setInterval(() => {
         const checkedDivs = document.querySelectorAll('div#checked')

@@ -72,7 +72,7 @@ const Header = () => {
                   id: 3,
                   title: 'Add Recipe',
                   icon: 'fa-solid fa-pen-to-square',
-                  link: ''
+                  link: '/PublishRecipe'
                 }
               ]}
             ></Dropdown>

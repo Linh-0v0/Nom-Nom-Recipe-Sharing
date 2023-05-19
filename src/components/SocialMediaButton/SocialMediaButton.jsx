@@ -21,7 +21,7 @@ const SocialMediaButton = props => {
           <i className="fab fa-twitter"></i>
         </a>
         <a href={redditLink} className={styles.reddit} target="blank">
-          <i class="fab fa-reddit"></i>
+          <i className="fab fa-reddit"></i>
         </a>
       </div>
     </div>

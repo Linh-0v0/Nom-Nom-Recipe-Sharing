@@ -48,11 +48,11 @@ const RecipeIntro = props => {
       <div className={styles.title}>{props.recipe.title}</div>
       <div className={styles.commonInfo}>
         <div className={`${styles.commonInfoEle} ${styles.flexRow}`}>
-          <i class="fa-solid fa-clock"></i>
+          <i className="fa-solid fa-clock"></i>
           <div>{props.recipe.commonInfo.duration}</div>
         </div>
         <div className={`${styles.commonInfoEle} ${styles.flexRow}`}>
-          <i class="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"></i>
 
           <div
           // onMouseUp={e => {
