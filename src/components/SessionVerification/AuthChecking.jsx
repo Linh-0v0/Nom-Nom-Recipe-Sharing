@@ -32,7 +32,6 @@ const withoutAuth = (
     const navigate = useNavigate()
     const { userData } = useContext(AuthContext)
     const [loading, setLoading] = useState(true)
-
     useEffect(() => {
       if (userData === null) {
         options.redirectUnauthenticated = true
@@ -41,13 +40,32 @@ const withoutAuth = (
       }
     }, [userData, options.redirectUnauthenticated])
 
+    console.log(!loading, options.redirectUnauthenticated, !userData)
+
     useEffect(() => {
-      if (!loading && options.redirectUnauthenticated && !userData) {
+      if (userData === null) {
+        options.redirectUnauthenticated = true
+      }
+
+      if (loading && options.redirectUnauthenticated && !userData) {
         navigate('/', { replace: true })
       }
     }, [userData, navigate, options.redirectUnauthenticated, loading])
 
-    return loading ? <button></button> : <Component {...props} />
+    return loading ? (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh'
+        }}
+      >
+        <div className="loader"></div>
+      </div>
+    ) : (
+      <Component {...props} />
+    )
   }
 
   return UnauthRoute
