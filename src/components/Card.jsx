@@ -2,8 +2,9 @@ import styles from '../styles/Card.module.css'
 import React, { useContext } from 'react'
 import { useState } from 'react'
 import { AuthContext } from './SessionVerification/AuthContext'
+import { Link } from 'react-router-dom'
 
-function CardImage(props) {
+function CardImage (props) {
   const [imageURL, setImageURL] = useState(
     props.image || 'src/images/Default_img.svg'
   )
@@ -41,7 +42,7 @@ function CardImage(props) {
   )
 }
 
-function UpdateRecipeButton({ userID, fn }) {
+function UpdateRecipeButton ({ userID, fn }) {
   const { userData } = useContext(AuthContext)
 
   if (userID == userData.user.id) {
@@ -54,7 +55,7 @@ function UpdateRecipeButton({ userID, fn }) {
   return null
 }
 
-function CardContent(props) {
+function CardContent (props) {
   return (
     <div className={styles.CardContent}>
       <p className={styles.CardTitle}>{props.title}</p>
@@ -73,7 +74,7 @@ function CardContent(props) {
 }
 
 export default class Card extends React.Component {
-  render() {
+  render () {
     return (
       <div className={styles.Card}>
         <div>
@@ -87,7 +88,11 @@ export default class Card extends React.Component {
         </div>
         <div className={styles.buttonContainer}>
           <UpdateRecipeButton fn={this.props.fn} userID={this.props.userID} />
-          <button className={styles.seeMoreButton}>See More</button>
+
+          <button className={styles.seeMoreButton} onClick={this.props.fn2}>
+            See More
+          </button>
+
           {/* <button className={styles.seeMoreButton}>Update</button> */}
         </div>
         {/* {this.props.author_id ==} */}

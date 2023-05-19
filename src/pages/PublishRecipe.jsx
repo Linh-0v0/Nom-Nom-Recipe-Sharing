@@ -184,7 +184,10 @@ const PublishRecipe = () => {
           closeable={true}
           titleIcon={<i className="fa-solid fa-circle-check"></i>}
           btnFn={
-            console.log('hello') // navigate('/', { replace: true })
+            () => {
+              toggle()
+              refreshPage()
+            } // navigate('/', { replace: true })
             // handleSubmit
           }
         />

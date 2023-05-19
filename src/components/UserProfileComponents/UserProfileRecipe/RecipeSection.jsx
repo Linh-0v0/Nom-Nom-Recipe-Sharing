@@ -80,31 +80,6 @@ export const RecipeSection = props => {
     toggle()
   }
 
-  const recipeTmp = recipes.map(ele => (
-    <Link to={`/recipe/${ele.name}/${ele.recipe_id}`} key={ele.recipe_id}>
-      <Suspense>
-        <Card
-          key={ele.recipe_id}
-          userID={ele.author_id}
-          image={ele.image_link}
-          title={ele.name}
-          category={['asd', 'asd1', 'asd2']}
-          location="Downtown, Seattle WA"
-          description={ele.description}
-          fn={() =>
-            handleUpdate(
-              ele.recipe_id,
-              ele.name,
-              ele.description,
-              ele.serving_size,
-              ele.duration
-            )
-          }
-        />
-      </Suspense>
-    </Link>
-  ))
-
   const navigate = useNavigate()
 
   // const { recipe } = FetchRecipeByID(id)
@@ -112,6 +87,36 @@ export const RecipeSection = props => {
   const handleCreateNewRecipe = () => {
     navigate(`/publishRecipe`)
   }
+
+  const handleMoveToRecipePage = (name, id) => {
+    navigate(`/recipe/${name}/${id}`)
+  }
+
+  const recipeTmp = recipes.map(ele => (
+    // <Link to={`/recipe/${ele.name}/${ele.recipe_id}`} key={ele.recipe_id}>
+    <Suspense key={ele.recipe_id}>
+      <Card
+        key={ele.recipe_id}
+        userID={ele.author_id}
+        image={ele.image_link}
+        title={ele.name}
+        category={['asd', 'asd1', 'asd2']}
+        location="Downtown, Seattle WA"
+        description={ele.description}
+        fn={() =>
+          handleUpdate(
+            ele.recipe_id,
+            ele.name,
+            ele.description,
+            ele.serving_size,
+            ele.duration
+          )
+        }
+        fn2={() => handleMoveToRecipePage(ele.name, ele.recipe_id)}
+      />
+    </Suspense>
+    // </Link>
+  ))
 
   let configUpdate = {
     method: 'PUT',

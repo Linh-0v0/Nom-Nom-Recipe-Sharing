@@ -41,6 +41,8 @@ export const UserReviewForm = id => {
     }
   }
 
+  console.log('log cai accesstoken ra coi choi', localStorage.accesstoken)
+
   const refreshPage = () => {
     window.location.reload(false)
   }
