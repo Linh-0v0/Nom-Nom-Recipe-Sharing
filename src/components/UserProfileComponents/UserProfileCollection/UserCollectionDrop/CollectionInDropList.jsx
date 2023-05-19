@@ -51,7 +51,7 @@ export const CollectionInDropList = props => {
   }
 
   const handleConfirm = () => {
-    isShowing = false
+    toggle()
   }
 
   return (
