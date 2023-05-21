@@ -43,7 +43,7 @@ const CollectionDropList = props => {
             className={`${styles.searchIconContainer}`}
             src={searchIcon}
           ></img> */}
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
           <input className={`${styles.inputFieldContainer}`} />
           {/* check with user collections */}
         </div>

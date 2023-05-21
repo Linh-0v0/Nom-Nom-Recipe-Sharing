@@ -129,7 +129,7 @@ const CollectionSection = props => {
       />
       <div className={`${styles.createNewContainer} ${styles.flexColumn}`}>
         <DefaultButton
-          options={<i class="fa-solid fa-plus fa-xl"></i>}
+          options={<i className="fa-solid fa-plus fa-xl"></i>}
           style={style}
           className={`${styles.createNewButton}`}
           fn={handleDisplay}
@@ -147,7 +147,7 @@ const CollectionSection = props => {
               justifyContent: 'flex-end'
             }}
           >
-            <i class="fa-solid fa-xmark fa-xl" onClick={handleHide}></i>
+            <i className="fa-solid fa-xmark fa-xl" onClick={handleHide}></i>
           </div>
 
           <div className={`${styles.flexRow}`} style={{ width: '100%' }}>

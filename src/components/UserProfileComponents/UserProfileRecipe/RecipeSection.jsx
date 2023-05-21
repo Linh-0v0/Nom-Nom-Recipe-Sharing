@@ -212,7 +212,7 @@ export const RecipeSection = props => {
       />
       <div className={`${styles.createNewContainer} ${styles.flexColumn}`}>
         <DefaultButton
-          options={<i class="fa-solid fa-plus fa-xl"></i>}
+          options={<i className="fa-solid fa-plus fa-xl"></i>}
           style={style}
           className={`${styles.createNewButton}`}
           fn={handleCreateNewRecipe}

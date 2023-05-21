@@ -155,7 +155,7 @@ export const UpdateRecipe = props => {
             onChange={e => handleUploadImage(e)}
           />
           {/* <span>Image</span> */}
-          <i class="fa-solid fa-images fa-lg"></i>
+          <i className="fa-solid fa-images fa-lg"></i>
         </div>
       </div>
 

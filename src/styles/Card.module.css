@@ -2,6 +2,7 @@
   border: 1px solid #ddd;
   height: 350px;
   width: 350px;
+  min-width: 350px !important;
   border-radius: 8px;
   box-shadow: 8px 8px 8px #ddd;
 
@@ -100,7 +101,7 @@
   /* width: 350px; */
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-radius: inherit;
 }
 

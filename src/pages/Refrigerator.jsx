@@ -186,6 +186,9 @@ const Refrigerator = () => {
                   <Button2
                     icon={<i className={'fa-solid fa-pen-to-square'}></i>}
                     options={'Add recipe'}
+                    fn={() => {
+                      window.location.href = '/PublishRecipe'
+                    }}
                   />
                 </div>
               ) : (
