@@ -127,6 +127,7 @@ html {
 }
 
 .button {
+  font-weight: bold;
   border: 1.5px solid #f5d682;
   border-radius: 10px;
   color: #f5d682;

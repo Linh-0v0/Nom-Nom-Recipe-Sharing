@@ -3,6 +3,7 @@ import AboutUsStyles from '../AboutUs/AboutUs.module.css'
 import nham_img from '/images/nham_avatar.png'
 import linh_img from '/images/346121653_949292926116672_4015539475013775595_n.jpg'
 import khoi_img from '/images/new.jpeg'
+import khang_img from '/images/07fd0cdc0a319af018220eff3ea75241.jpg'
 import Header from '../Header'
 
 const member = [
@@ -32,13 +33,14 @@ const member = [
   },
   {
     title: 'Khang',
-    features: ['Front-end Coder', 'THIEU GIA DA LAT'],
+    features: ['Front-end Coder', 'Run 100% on coffee ☕☕☕'],
     buttonText: 'Github',
-    url: 'https://github.com/KN2222'
+    url: 'https://github.com/KN2222',
+    img: khang_img
   }
 ]
 
-function MemberTable () {
+function MemberTable() {
   return (
     <>
       <Header />
