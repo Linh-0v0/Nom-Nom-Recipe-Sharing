@@ -6,6 +6,8 @@
 
 ## Project Details
 
+Website link: https://nomnomrecipe.netlify.app/
+
 ### Instruction
 
 
