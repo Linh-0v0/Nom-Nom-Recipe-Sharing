@@ -1,0 +1,159 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.scrollable {
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.background {
+  padding: 0 25px 25px;
+  position: relative;
+  width: 100%;
+  background: #f5d682;
+  height: calc(100vh);
+  overflow: hidden;
+}
+
+.background::after {
+  content: '';
+  background: #f5d682;
+  height: 350px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .background {
+    padding: 0 0 25px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 100px 0 0;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.panel {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 25px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.table {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08),
+    0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .table {
+    flex-direction: row;
+  }
+}
+
+.table * {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.info {
+  border-bottom: 1px solid #e1f1ff;
+  padding: 25px;
+}
+
+.info:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 900px) {
+  .info {
+    border-bottom: none;
+    border-right: 1px solid #e1f1ff;
+    flex-basis: 100%;
+    padding: 25px 50px;
+  }
+
+  .info:last-child {
+    border-right: none;
+  }
+}
+
+.img {
+  margin-bottom: 25px;
+  width: 150px;
+  height: 150px;
+}
+
+.header {
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.features {
+  color: #00000074;
+  width: 100% !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 50px 0 25px;
+  list-style: none;
+  height: auto;
+}
+
+.features-item {
+  border-top: 1px solid #e1f1ff;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 15px 0;
+  height: 60px;
+}
+
+.features-item:last-child {
+  border-bottom: 1px solid #e1f1ff;
+}
+
+.button {
+  border: 2px solid #e6bb2c;
+  font-weight: bold;
+  border-radius: 10px;
+  color: #e6bb2c;
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 25px;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+  font-size: 12px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #e6bb2c;
+  color: white;
+}
+
+.button.is-featured {
+  background-color: #e6bb2c;
+  color: #fff;
+}
+
+.button.is-featured:hover,
+.button.is-featured:active {
+  background-color: #f4bc21;
+}

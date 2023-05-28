@@ -1,21 +1,40 @@
-
+import { useEffect, useState } from 'react'
 import styles from '../../../styles/RecipeDetailPage/DetailRecipePage.module.css'
+import axios from 'axios'
 
-const RecipeDescription = () => {
-    return (
-      <div className={styles.recipePrimaryContainer}>
-        <div className={styles.title}>Description</div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.
-        </p>
-      </div>
-    )
+const RecipeDescription = props => {
+  let config = {
+    method: 'get',
+    url: `https://nom-nom-recipe-web-be.herokuapp.com/recipe/get-origin/${props.id}`
   }
 
-  export default RecipeDescription;
+  const [origins, setOrigins] = useState([])
+
+  useEffect(() => {
+    axios
+      .request(config)
+      .then(res => setOrigins(res.data))
+      .catch(error => console.log(error))
+  }, [])
+
+  const origin = origins.map(ele => <p key={ele.id}>{ele.name}</p>)
+
+  return (
+    <>
+      <div
+        className={`${styles.recipePrimaryContainer} ${styles.boxShadowPurple}`}
+      >
+        <div className={styles.title}>Origin</div>
+        <div className={styles.originContainer}>{origin}</div>
+      </div>
+      <div
+        className={`${styles.recipePrimaryContainer} ${styles.boxShadowPurple}`}
+      >
+        <div className={styles.title}>Description</div>
+        <p className={`${styles.description}`}>{props.recipe.description}</p>
+      </div>
+    </>
+  )
+}
+
+export default RecipeDescription

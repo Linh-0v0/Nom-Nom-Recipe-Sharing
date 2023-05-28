@@ -1,0 +1,117 @@
+@import url('../../globalStyles.css');
+
+.listMainContainer {
+  position: absolute;
+  width: 280px;
+  height: fit-content;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  /* border: 1px solid black; */
+  padding: 4px;
+  z-index: 2;
+  top: 50px;
+  /* display: none; */
+}
+
+.searchBarAndCreateButtonContainer {
+  height: fit-content;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.searchBar {
+  height: 32px;
+  /* width: calc(280px - 8px); */
+  width: 100%;
+  /* background-color: white; */
+  padding: 4px;
+  gap: 4px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.searchBar > i {
+  align-self: center;
+}
+
+.searchBar > input {
+  /* background-color: white; */
+  width: 100%;
+  background-color: white;
+}
+
+.searchIconContainer {
+  width: 24px;
+  /* background-color: black; */
+}
+
+.inputFieldContainer {
+  height: 100%;
+  width: 90%;
+  outline: none;
+  border-width: 0px;
+  font-size: 16px;
+  margin: 0 0 8px;
+  padding: 4px;
+  /* border-radius: 8px; */
+}
+
+.hiddenInputField {
+  height: fit-content !important;
+  display: none;
+}
+
+.hiddenInputField > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* justify-content: flex-end; */
+  /* justify-self: flex-end; */
+}
+
+.hiddenInputField > div > div {
+  color: rgba(236, 91, 68, 1);
+}
+
+.hiddenInputField > div > button {
+  padding: 4px 16px !important;
+}
+.createNewCollection {
+  height: 32px;
+  margin-bottom: 4px;
+}
+.button {
+  height: 100%;
+  /* border: none; */
+  /* border-radius: 8px; */
+  width: 100%;
+  text-align: left;
+  padding: 0 4px;
+  background-color: transparent;
+  /* padding: 0; */
+  font: var(--primary-font);
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.itemsContainer {
+  height: fit-content;
+  max-height: calc((32px + 4px) * 10);
+  margin-top: 4px;
+  overflow: scroll;
+}
+
+.item {
+  height: 32px;
+  /* margin-bottom: 4px; */
+  padding: 0 4px;
+  border-radius: 4px;
+  font: var(--primary-font);
+  /* text-align: justify; */
+  line-height: 2;
+  /* font-size: 14px; */
+  cursor: pointer;
+}
+.item:hover {
+  background-color: var(--light-orange);
+}

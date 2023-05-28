@@ -1,0 +1,129 @@
+@import url(../globalStyles.css);
+@import url(../RecipeDetailPage/DetailRecipePage.module.css);
+
+.updateForm {
+  width: 100%;
+  height: fit-content;
+  /* background-color: var(--light-orange); */
+  position: relative;
+  /* padding: 20px; */
+  gap: 16px;
+  align-items: center;
+  /* border-radius: 8px; */
+  /* transition: 2s; */
+  /* justify-content: center; */
+}
+
+.updateName {
+  width: 100%;
+  height: fit-content;
+  background-color: white;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.label {
+  width: 16%;
+  text-align: center;
+  border: none;
+  border-radius: 0 !important;
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+  font: var(--primary-font);
+  padding: 0 8px;
+}
+
+.inputField {
+  border: none !important;
+  outline: none;
+  padding: 8px !important;
+  font: var(--primary-font);
+}
+
+.updateNote {
+  width: 100%;
+  height: fit-content;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.updateNote > textarea {
+  width: 100%;
+  padding: 1em;
+  outline: none;
+  border: none;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.noteLabel {
+  display: block;
+  margin: 0 16px;
+  padding: 8px 0;
+  /* font-size: 16px; */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  font: var(--primary-font);
+}
+.submitButton {
+  width: 20%;
+  border-radius: 16px;
+  font: var(--primary-font);
+}
+
+.closeButton {
+  align-self: flex-end;
+  width: 36px;
+  height: 36px;
+  background-color: var(--black-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: var(--primary-font);
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.formTitle {
+  text-align: center;
+  width: 100%;
+  font: var(--primary-font);
+  color: var(--black-purple);
+  font-size: 24px;
+  font-weight: bold;
+  /* display: flex; */
+}
+
+.inputFieldContainer {
+  width: 100%;
+  height: fit-content;
+  border-radius: inherit;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 8px;
+}
+
+.oneLine {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 0.1fr;
+  gap: 8px;
+}
+.one {
+  width: 100%;
+  gap: 8px;
+}
+
+.inputFieldContainer:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.imageButton {
+  /* width: 100%; */
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: inherit;
+  /* height: inherit; */
+  padding: 28px 30px;
+}

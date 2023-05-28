@@ -1,14 +1,23 @@
 import styles from '../../../styles/RecipeDetailPage/DetailRecipePage.module.css'
+import { DefaultButton } from '../../Button'
 
 const RenderLabel = props => {
+  const style = {
+    backgroundColor: props.color,
+    color: props.textColor,
+    backgroundColorHover: '',
+    colorHover: props.color
+  }
+
   return (
-    <div
+    <DefaultButton
+      className={`${styles.label}`}
+      type={'button'}
       key={props.key}
-      className={styles.label}
-      style={{ backgroundColor: props.color, color: props.textColor }}
-    >
-      {props.name}
-    </div>
+      style={style}
+      fn={props.fn}
+      options={props.name}
+    ></DefaultButton>
   )
 }
 

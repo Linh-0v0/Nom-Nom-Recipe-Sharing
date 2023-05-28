@@ -1,0 +1,43 @@
+.form_Container {
+  padding: 0px 200px;
+}
+
+.search_Container {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.search_Container > input {
+  outline: solid 1px transparent;
+}
+.search_Container > input:focus {
+  outline: solid 1px #ff8600;
+  /* outline: none; */
+}
+
+.search_Container > div {
+  margin: 0px;
+}
+
+.btnContainer > button {
+  width: 150px !important;
+  height: 47px !important;
+}
+
+.filter_Container {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter_Container > div {
+  /* margin: 6px; */
+  width: 50% !important;
+  /* border: 2px solid #ff8600 !important;
+  border-radius: 8px !important; */
+}
+/* .filter_Container > div > div > div > input:focus {
+    background-color: yellow;
+} */

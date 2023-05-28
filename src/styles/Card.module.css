@@ -4,7 +4,7 @@
   width: 350px;
   border-radius: 8px;
   box-shadow: 8px 8px 8px #ddd;
-  margin: 12px 0px;
+  min-width: 350px;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   flex-basis: 33.33333%;
@@ -12,7 +12,9 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
-
+  margin: auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .Card:hover {
@@ -24,7 +26,7 @@
 }
 
 .Image {
-  background-color: lightGray;
+  background-color: #f4f3f1;
   border-radius: 8px 8px 0 0;
   max-height: 140px;
   min-height: 140px;
@@ -37,24 +39,25 @@
   margin: 12px 0px 0px 0px;
 }
 
-.LocationLabel {
-  color: #8294aa;
-  font-size: 14px;
-  margin: 4px 0;
-}
-
 .Description {
   font-size: 14px;
   margin: 8px 0 0 0px;
-  word-break: break-all;
+  word-break: break-word;
   text-overflow: ellipsis;
-  overflow: hidden; 
+  overflow: hidden;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+
   width: auto;
-  height: auto; 
-  white-space: nowrap;
+  height: auto;
+  max-height: 63px;
+  /* white-space: nowrap; */
 }
 
-.pill {
+.LocationLabel {
+  min-height: 25px;
   display: inline-block;
   padding: 0.5em 1em;
   border-radius: 20px;
@@ -69,34 +72,36 @@
   cursor: pointer;
 }
 
-.pill:nth-child(1) {
+.LocationLabel:nth-child(1) {
   background: #f87e7e;
 }
 
-.pill:nth-child(2) {
+.LocationLabel:nth-child(2) {
   background: #ffc483;
 }
 
-.pill:nth-child(3) {
+.LocationLabel:nth-child(3) {
   background: #5a3055;
 }
 
-.pill:nth-child(4) {
+.LocationLabel:nth-child(4) {
   background: #74956a;
 }
 
-.pill:nth-child(5) {
+.LocationLabel:nth-child(5) {
   background: #bf50ff;
 }
 
-.pill:hover {
+.LocationLabel:hover {
   filter: saturate(2);
   color: white;
 }
 
 .buttonContainer {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  border-radius: inherit;
 }
 
 .seeMoreButton {
@@ -107,9 +112,26 @@
   font-size: 14px;
   padding: 8px 16px;
   border-radius: 70px 0px 0px;
+  border-bottom-right-radius: inherit;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.updateButton {
+  background-color: #f2f2f2;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-top-right-radius: 70px;
+  border-bottom-left-radius: inherit;
   transition: background-color 0.3s ease-in-out;
 }
 
 .seeMoreButton:hover {
+  background-color: #ddd;
+}
+
+.updateButton:hover {
   background-color: #ddd;
 }

@@ -1,0 +1,31 @@
+@import url('./DetailRecipePage.module.css');
+@import url('../globalStyles.css');
+
+.userReviewContainer {
+  height: 160px;
+  padding: 0;
+}
+.ratingContainer {
+  height: 24%;
+  width: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  margin: 4% 4% 1%;
+}
+
+.commentContainer {
+  height: 100%;
+  margin: 0 4%;
+}
+
+.commentContainer > textarea {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font: var(--primary-font);
+  height: 100%;
+  width: 100%;
+}

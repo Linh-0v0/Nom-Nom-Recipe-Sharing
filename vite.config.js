@@ -7,12 +7,15 @@ export default defineConfig({
   plugins: [react()],
   build: {
     optimizeDeps: {
-      include: ['axios', 'lodash'] 
+      include: ['axios', 'lodash'] // Add the necessary dependencies that need to be pre-bundled
+
     },
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      main: path.resolve(__dirname, 'src/index.html') 
+
+      main: path.resolve(__dirname, 'src/main.html') // Adjust the path and filename according to your entry point
+
     }
   },
   server: {

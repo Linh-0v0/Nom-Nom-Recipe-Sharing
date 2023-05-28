@@ -1,0 +1,90 @@
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.7;
+  backdrop-filter: blur(2px); /* apply blur filter */
+}
+
+.modal_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal {
+  z-index: 100;
+  background: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  border-radius: 3px;
+  width: 500px;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal_title {
+  font-weight: bold;
+}
+
+.modal_title i {
+  color: #3d233a;
+  padding-right: 5px;
+}
+
+.modal_close_ {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  opacity: 0.3;
+  cursor: pointer;
+  border: none;
+}
+
+.modal_body {
+  /* text-align: center;
+  color: #949497;
+  padding: 2rem 2rem 1rem 2rem; */
+}
+
+.modal_btnContainer {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal_btnContainer > button {
+  min-width: 100px;
+}
+
+.placeHolder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Make the child element invisible */
+  z-index: 99; /* Ensure the child element is above other content */
+  cursor: pointer;
+}

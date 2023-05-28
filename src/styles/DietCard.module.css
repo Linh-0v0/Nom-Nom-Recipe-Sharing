@@ -1,0 +1,62 @@
+.dietCard {
+  border: 1px solid #ddd;
+  height: min-content;
+  height: 137px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px #ddd;
+  margin: 12px auto;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  flex-basis: 33.33333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: #5FCCA0; */
+}
+
+.dietCard:hover {
+  transform: scale(1.05);
+}
+
+.dietCardContent {
+  height: inherit;
+  padding: 4px 16px 20px 16px;
+}
+
+.dietCardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 12px 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.DescriptionLabel {
+  font-size: 14px;
+  margin: 4px 0;
+  height: fit-content;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dietCardTitle input[type='checkbox'] {
+  display: none;
+}
+.dietCardTitle i{
+  color: #ddd;
+}
+
+.dietCard .active {
+  outline: 3px solid #7096f8;
+  border-radius: 8px;
+}
+
+.dietCard .active .dietCardTitle, .dietCard .active .dietCardTitle i {
+  color: #7096f8;
+}
+

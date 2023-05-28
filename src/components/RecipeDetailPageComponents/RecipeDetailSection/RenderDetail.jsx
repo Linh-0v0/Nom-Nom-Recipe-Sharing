@@ -1,4 +1,4 @@
-import doneIcon from '../../../images/Nom nom icons/Done.png'
+import doneIcon from '/images/Nom nom icons/Done.png'
 import styles from '../../../styles/RecipeDetailPage/DetailRecipePage.module.css'
 
 const RenderDetail = props => {

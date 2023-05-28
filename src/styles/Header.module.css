@@ -1,47 +1,47 @@
-@import "./globalStyles.css";
-
+@import './globalStyles.css';
 
 .header {
-    background-color: white;
-    max-width: 100vw;
-    height: 10vh;
+  background-color: #fffdfa;
+  max-width: 100vw;
+  height: 10vh;
+  box-shadow: 0px 8px 8px #ddd;
+  z-index: 90;
+  position: relative;
 }
 
 .logoContainer {
-    width: 16%;
-    height: auto;
-    background-color: white;
+  width: 16%;
+  height: auto;
 }
 
 .navBar {
-    /* background-color: green; */
-    width: 60%;
-    height: auto;
+  width: 60%;
+  height: auto;
 }
 ul {
-    list-style-type: none;
-    width: 80%;
-    height: 100%;
-    /* background-color: red; */
-    gap: 40px;
+  list-style-type: none;
+  width: 80%;
+  height: 100%;
+  /* background-color: red; */
+  gap: 40px;
 }
 
-li {
-    font-size: larger;
-    font-weight: bold;
-    text-decoration: solid black;
+li > button {
+  font-size: larger;
+  font-weight: bold;
+  text-decoration: solid black;
+  background-color: inherit;
+  border-radius: 16px;
 }
 
-.profileContainer {
-    /* background-color: red; */
-    width: 24%;
-    height: auto;
+.loginSignupContainer {
+  width: 24%;
+  height: auto;
 }
 
 .loginSignup {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 2em
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
 }
-

@@ -1,57 +1,130 @@
 import React, { useState, useEffect } from 'react'
-
+import axios from 'axios'
+import { FetchUserCollections } from '../UserProfileComponents/UserProfileCollection/FetchUserCollections'
 export const AuthContext = React.createContext()
-
 
 export const logout = async () => {
   try {
-    const response = await fetch('http://localhost:3000/auth/logout', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.accessToken
+    const response = await fetch(
+      'https://nom-nom-recipe-web-be.herokuapp.com/auth/logout',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
-    });
+    )
 
     if (response.ok) {
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
-      console.log("this is logout");
-      window.location.reload();
+      localStorage.removeItem('accesstoken')
+      localStorage.removeItem('refreshtoken')
+
+      window.location.replace('/')
     } else {
-      throw new Error('Error logging out');
+      throw new Error('Error logging out')
     }
   } catch (error) {
-    console.error('Error logging out:', error);
+    console.error('Error logging out:', error)
   }
-};
+}
 
+export const dietFetch = async userData => {
+  if (userData) {
+    try {
+      const response = await fetch(
+        `https://nom-nom-recipe-web-be.herokuapp.com/get-dietary-preference/${userData.user.id}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
 
+      if (response.ok) {
+        const data = await response.json()
 
-const url = 'http://localhost:3000/user/my-profile'
-const accessToken = localStorage.accessToken
+        return data
+      } else {
+        throw new Error('Unable to get dietary preference')
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const FetchUserRecipe = async userData => {
+  const [userRecipes, setUserRecipes] = useState([])
+
+  let config = {
+    method: 'GET',
+    url: `https://nom-nom-recipe-web-be.herokuapp.com/recipe/user/${userData.user.id}`
+  }
+
+  const res = await axios.request(config).then(res && setUserRecipes(res.data))
+
+  return userRecipes
+}
+
+const accesstoken = localStorage.getItem('accesstoken')
 
 const AuthContextProvider = props => {
   const [userData, setUserData] = useState(null)
-  // const [backendMsg, setBackendMsg] = useState(null)
+
+  const [dietData, setDietData] = useState(null)
+
+  const userCollectionData = FetchUserCollections()
 
   const getUserSession = async () => {
-    try {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: accessToken
+    if (accesstoken) {
+      try {
+        const response = await fetch(
+          `https://nom-nom-recipe-web-be.herokuapp.com/user/my-profile`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: accesstoken
+            }
+          }
+        )
+        const data = await response.json()
+        if (!response.ok) {
+          throw new Error(data.msg)
         }
-      })
-      const data = await response.json()
-      if (!response.ok) {
-        throw new Error(data.msg)
+        return data
+      } catch (error) {
+        return null
       }
-      return data
-    } catch (error) {
-      // setBackendMsg(error.message)
+    } else {
       return null
+    }
+  }
+
+  const getDietaryData = async userData => {
+    if (userData) {
+      try {
+        const response = await fetch(
+          `https://nom-nom-recipe-web-be.herokuapp.com/get-dietary-preference/${userData.user.id}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }
+        )
+
+        if (response.ok) {
+          const data = await response.json()
+
+          setDietData(data)
+        } else {
+          throw new Error('Unable to get dietary preference')
+        }
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 
@@ -59,6 +132,7 @@ const AuthContextProvider = props => {
     getUserSession()
       .then(data => {
         setUserData(data)
+        getDietaryData(data)
       })
       .catch(error => {
         setUserData(null)
@@ -66,8 +140,15 @@ const AuthContextProvider = props => {
   }, [])
 
   return (
-    // <AuthContext.Provider value={{ userData, backendMsg }}>
-    <AuthContext.Provider value={{ userData, logout }}>
+    <AuthContext.Provider
+      value={{
+        userData,
+        logout,
+        dietData,
+        dietFetch,
+        userCollectionData
+      }}
+    >
       {props.children}
     </AuthContext.Provider>
   )

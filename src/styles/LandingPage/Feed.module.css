@@ -1,0 +1,249 @@
+.feedContainer {
+  display: flex;
+  width: 100%;
+}
+
+.noResultsFound {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.noResultsFound > img {
+  padding-top: 30px;
+}
+
+.noResultsFound > *:not(:last-child) {
+  display: block;
+  padding-bottom: 20px;
+}
+
+.postContainer {
+  flex: 3 0 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  color: var(--black-purple);
+  background-color: white;
+  padding: 30px;
+  width: 568px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.post {
+  width: 100%;
+  max-width: 568px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  margin: 30px 0;
+  /* border: 1px soild #000; */
+  transition: all 0.5s ease-in-out;
+}
+
+.post:hover {
+  scale: 1.05;
+}
+
+.postWrapper {
+  padding: 20px;
+}
+
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postTopLeft {
+  display: flex;
+  align-items: baseline;
+}
+
+.postProfileImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.postRecipeName {
+  margin: 0 10px;
+}
+
+.postDate {
+  font-size: 12px;
+}
+
+.postCenter {
+  margin: 20px 0;
+}
+
+.postInfo,
+.postInfo > span {
+  margin-left: 0 !important;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.postInfo > span > i {
+  color: var(--med-orange);
+}
+
+.postText {
+  padding: 0px 20px;
+  text-align: justify;
+}
+
+.postImgContainer {
+  margin-top: 20px;
+  padding: 0px 20px;
+  max-width: 100%;
+  max-height: 500px;
+  /* background-color: #ddd; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.postImg {
+  border-radius: 10px;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.postBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postBottomLeft {
+  display: flex;
+  align-items: center;
+}
+
+/* .likeIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.postLikeCounter {
+  font-size: 15px;
+} */
+
+.postVisit {
+  cursor: pointer;
+  /* border-bottom: 1px dashed gray; */
+  color: var(--med-orange);
+  font-size: 15px;
+}
+
+.postVisit > i {
+  transition: all 0.2s ease-in-out;
+}
+
+.postVisit > i:hover {
+  color: var(--black-purple);
+}
+
+.placeHolder {
+  flex: 3 0 20%;
+}
+
+/* rightbar */
+.rightbar {
+  flex: 3 0 20%;
+}
+
+.rightbarWrapper {
+  padding: 20px 20px 0 0;
+}
+
+.rightbarContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.rightbarText {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.rignhtbarAd {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+  background-color: white;
+  height: 225px;
+}
+
+.rignhtbarAd img {
+  padding: 20px;
+  width: 100%;
+  border-radius: 25px;
+  transition: all 0.5s ease-in-out;
+}
+
+.rignhtbarAd img:hover {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.rightbarLink {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: baseline;
+}
+
+.rightbarTitle {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.rightbarList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100% !important;
+}
+.rightbarList li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 2px solid var(--med-orange);
+  background-color: white;
+  color: var(--med-orange);
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.rightbarList li:hover {
+  background-color: #dddbd6;
+}

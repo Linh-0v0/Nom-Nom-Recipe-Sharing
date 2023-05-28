@@ -1,0 +1,25 @@
+.shareContainer span {
+  display: block;
+  margin: 3rem auto;
+  font-size: 50px;
+  padding: 1rem;
+  margin: 1rem;
+}
+.shareButtons i {
+  font-size: 25px;
+  margin: 5px;
+}
+.facebook {
+  color: #3b5998;
+}
+.twitter {
+  color: #55acee;
+}
+.reddit {
+  color: #cb2027;
+}
+.facebook:hover,
+.twitter:hover,
+.reddit:hover {
+  opacity: 0.8;
+}

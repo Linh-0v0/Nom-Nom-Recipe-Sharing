@@ -1,32 +1,35 @@
+@import '../styles/globalStyles.css';
+
 button {
-  border-radius: 8px;
-  font-family: Noto Sans JP;
+  font-family: var(--primary-font);
   font-weight: 600;
-  color: white;
   text-decoration: none;
   transition: background-color 0.5s, color 0.5s;
-  padding: 10px 0px;
-  border-width: 2px;
-  border-style: solid;
+  padding: 10px 20px;
+  border: none;
   cursor: pointer;
-  min-width: 150px;
+  /* min-width: 97px; */
 }
 
-button > i{
+button > i {
   margin-right: 5px;
 }
 
 .button1 {
-  background-color: #d18d0f;
-  border: 2px solid #d18d0f;
+  color: white;
+  border-radius: 8px;
+  background-color: var(--med-orange);
+  border: 2px solid var(--med-orange);
 }
 
 .button1:hover {
   background-color: white;
-  color: #d18d0f;
+  color: var(--med-orange);
 }
 
 .button2 {
+  border-radius: 8px;
+  color: white;
   background-color: #3d233a;
   border: 2px solid #3d233a;
 }
@@ -36,7 +39,46 @@ button > i{
   color: #3d233a;
 }
 
-.disabledButton{
+.disabledButton {
+  border-radius: 8px;
   background-color: #949497;
   cursor: not-allowed;
+}
+.defaultButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.backToTopButton {
+  position: fixed;
+  padding: 0px !important;
+  bottom: 20px;
+  right: 20px;
+  width: 60px !important;
+  height: 60px !important;
+  background-color: #3d233a;
+  color: white;
+  border-radius: 50%; /* Use 50% to create a circle shape */
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border: 3px solid #3d233a;
+  pointer-events: none;
+}
+
+.backToTopButton:hover{
+  background-color: white;
+  color: #3d233a;
+
+}
+
+.backToTopButton > i {
+  /* color: white; */
+  margin-right: 0px;
+  font-size: 2rem;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: auto;
 }

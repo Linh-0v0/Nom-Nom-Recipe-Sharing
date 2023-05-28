@@ -1,39 +1,66 @@
-import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './AuthContext';
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from './AuthContext'
 
-const withAuth = (Component, options = { redirectAuthenticated: true, redirectTo: '/allRecipe' }) => {
-  const AuthRoute = (props) => {
-    const navigate = useNavigate();
-    const { userData } = useContext(AuthContext);
+const withAuth = (
+  Component,
+  options = { redirectAuthenticated: true, redirectTo: '/' }
+) => {
+  const AuthRoute = props => {
+    const navigate = useNavigate()
+    const { userData } = useContext(AuthContext)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
       if (options.redirectAuthenticated && userData) {
-        navigate(options.redirectTo, { replace: true });
+        navigate(options.redirectTo, { replace: true })
       }
-    }, [userData, navigate, options.redirectAuthenticated, options.redirectTo]);
+      setLoading(false)
+    }, [userData, navigate, options.redirectAuthenticated, options.redirectTo])
 
-    return <Component {...props} />;
-  };
+    return loading ? null : <Component {...props} />
+  }
 
-  return AuthRoute;
-};
+  return AuthRoute
+}
 
-const withoutAuth = (Component, options = { redirectUnauthenticated: true }) => {
-  const UnauthRoute = (props) => {
-    const navigate = useNavigate();
-    const { userData } = useContext(AuthContext);
+const withoutAuth = (
+  Component,
+  options = { redirectUnauthenticated: true }
+) => {
+  const UnauthRoute = props => {
+    const navigate = useNavigate()
+    const { userData } = useContext(AuthContext)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-      if (options.redirectUnauthenticated && !userData) {
-        navigate('/login', { replace: true });
+      const handleRedirect = () => {
+        if (userData === null) {
+          options.redirectUnauthenticated = true
+        } else {
+          setLoading(false)
+        }
       }
-    }, [userData, navigate, options.redirectUnauthenticated]);
 
-    return <Component {...props} />;
-  };
+      handleRedirect()
+    }, [userData, options.redirectUnauthenticated])
 
-  return UnauthRoute;
-};
+    useEffect(() => {
+      const handleNavigation = () => {
+        if (options.redirectUnauthenticated && !userData) {
+          navigate('/', { replace: true })
+        }
+      }
 
-export { withAuth, withoutAuth };
+      if (!loading) {
+        handleNavigation()
+      }
+    }, [userData, navigate, options.redirectUnauthenticated, loading])
+
+    return loading ? null : <Component {...props} />
+  }
+
+  return UnauthRoute
+}
+
+export { withAuth, withoutAuth }

@@ -1,63 +1,77 @@
 import ReactStars from 'react-rating-stars-component'
 import styles from '../../../styles/RecipeDetailPage/DetailRecipePage.module.css'
-import avatar from '../../../images/avatarTemp.png'
-// import RatingStars from './ReviewRatingStars';
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { LoadUserImg } from '../../ApiPost/LoadImage'
 
-const UserReview = () => {
+const UserReview = props => {
   let star = {
     size: 20,
     count: 5,
     activeColor: 'rgba(254, 216, 53, 1)',
     edit: false,
     value: 0,
-    isHalf: true,
+    isHalf: true
   }
 
-  const userReviewList = [
-    {
-      key: 1,
-      avatar: avatar,
-      name: 'Khoi',
-      ratingValue: 4,
-      feedBack:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur'
-    },
-    {
-        key: 2,
-        avatar: avatar,
-        name: 'Khoi',
-        ratingValue: 3.5,
-        feedBack:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur'
-      },
-      {
-        key: 3,
-        avatar: avatar,
-        name: 'Khoi',
-        ratingValue: 5,
-        feedBack:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur'
-      },
-      {
-        key: 4,
-        avatar: avatar,
-        name: 'Khoi',
-        ratingValue: 2,
-        feedBack:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur'
-      },
-  ]
+  const [reviews, setReviews] = useState([])
 
-  const userReview = userReviewList.map(review => (
-    <div key={review.key} className={`${styles.userReviewContainer}`}>
+  let config = {
+    method: 'GET',
+    url: `https://nom-nom-recipe-web-be.herokuapp.com/recipe/${props.id}/reviews`
+  }
+
+  const fetch = async () => {
+    try {
+      const res = await axios.request(config)
+      setReviews(res && res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetch()
+  }, [])
+
+  async function getImageURLs(reviews) {
+    const imageUrls = []
+    for (const review of reviews) {
+      const userImgURL = await LoadUserImg(review.id)
+      imageUrls.push(userImgURL)
+    }
+    return imageUrls
+  }
+
+  const [reviewImg, setReviewImg] = useState([]) // Fix the variable name
+
+  // Usage example
+  async function processReviews(reviews) {
+    setReviewImg(await getImageURLs(reviews))
+  }
+
+  // console.log(reviewImg)
+
+  useEffect(() => {
+    processReviews(reviews).catch(error => {
+      console.log(error)
+    })
+    // }
+  }, [reviewImg])
+
+  const userReview = reviews.map((review, id) => (
+    <div
+      key={review.review_id}
+      className={`${styles.userReviewContainer} ${styles.boxShadowPurple}`}
+    >
       <div className={`${styles.flexRow} ${styles.userInfoContainer}`}>
-        <img className={`${styles.userAvatar}`} src={review.avatar} />
+        <img className={`${styles.userAvatar}`} src={reviewImg[id]} />
         <div className={`${styles.flexColumm}`}>
-          <div>{review.name}</div>
-          <ReactStars {...star} value={review.ratingValue} />
+          <div>{review.username}</div>
+          <ReactStars {...star} value={review.rating} />
         </div>
       </div>
-      <p>{review.feedBack}</p>
+      <p className={`${styles.textOverFlowEcllipse}`}>{review.comment}</p>
     </div>
   ))
 

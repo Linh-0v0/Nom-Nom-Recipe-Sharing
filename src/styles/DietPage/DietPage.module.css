@@ -1,0 +1,49 @@
+.page {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.text {
+  padding: 50px;
+}
+
+.dietCardContainer {
+  padding-top: 25px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.dietCardContainer > * {
+  flex-basis: 33.33333%;
+}
+
+.dietCardContainer > div:empty {
+  height: 0;
+  border: none;
+  width: 350px;
+}
+
+.dietCardLazyLoading {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  height: 350px;
+  width: 350px;
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px #ddd;
+  margin: 12px 0px;
+  flex-basis: 33.33333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dietBtn {
+  padding-top: 21px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

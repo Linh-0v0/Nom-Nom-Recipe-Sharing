@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/LoginAndSignUp/LoginAndSignUp.module.css'
-import Frame from '../components/LoginAndSIgnUpComponents/Frame'
-import SignUpForm from '../components/LoginAndSIgnUpComponents/SignUpForm'
+import Frame from '../components/FormComponents/Frame'
+import SignUpForm from '../components/FormComponents/SignUpForm'
 import {withAuth} from '../components/SessionVerification/AuthChecking'
 const Signup = ({}) => {
   return (

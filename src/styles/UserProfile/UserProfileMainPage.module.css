@@ -1,0 +1,266 @@
+@import url('../globalStyles.css');
+@import url('../RecipeDetailPage/DetailRecipePage.module.css');
+@import url('../UserProfile/UserProfileDetail/UserProfileDetail.module.css');
+
+.createNewContainer {
+  width: 100%;
+  /* height: 200px; */
+  /* position: relative; */
+  max-width: 1000px;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+.createNewButton {
+  /* width: 30%; */
+  align-self: flex-end;
+  font: var(--primary-font);
+  font-family: Noto Sans JP;
+  font-weight: 900;
+
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 16px;
+  border: 4px solid var(--light-orange);
+}
+
+.createForm {
+  width: 80%;
+  align-items: center;
+  background-color: rebeccapurple;
+  /* height: 200px; */
+  padding: 0 !important;
+  border-radius: 16px;
+  background-color: var(--light-orange);
+  /* font: var(--primary-font)
+  font; */
+  font-family: Noto Sans JP;
+
+  display: none;
+  transition-duration: 0.5s;
+}
+
+.createButton {
+  /* align-self: flex-end;
+  justify-self: flex-end; */
+
+  width: 160px !important;
+  font-size: 16px;
+  border-bottom-right-radius: inherit;
+  color: white !important;
+}
+
+.createButton:hover {
+  /* align-self: flex-end;
+  justify-self: flex-end; */
+  color: transparent;
+  color: var(--black-purple) !important;
+}
+
+.imageFormControl {
+  width: 40%;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.imgContainer {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black-purple);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.imgContainer:hover {
+  /* asda */
+  opacity: 0.8;
+}
+
+.formControl {
+  width: 60%;
+  height: 100%;
+  /* background-color: wheat; */
+  border-radius: inherit;
+}
+
+.infoFormControl {
+  width: 100%;
+  height: fit-content;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.inputField {
+  border: none !important;
+  outline: none !important;
+}
+.name {
+  width: 100%;
+  background-color: white;
+  padding: 8px 8px;
+  gap: 4px;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.labelName {
+  padding-right: 8px;
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.note {
+  background-color: white;
+  border-radius: 8px;
+}
+
+.labelNote {
+  /* display: block; */
+  padding: 8px 0;
+  margin: 0 16px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.note > textarea {
+  width: 100%;
+  padding: 4px 12px;
+  outline: none;
+  border: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font: var(--primary-font);
+}
+
+.inputField {
+  /* height: ; */
+  font: var(--primary-font);
+}
+
+.profileMainContainer {
+  margin-top: 8%;
+  padding: 0px 100px;
+  /* height: fit-content; */
+  display: grid;
+  grid-template-columns: auto auto;
+
+  /* background-color: red; */
+}
+
+.sectionContainer {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
+.collectionMainContainer {
+  /* position: absolute; */
+  width: 100%;
+  height: fit-content;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 0 0 60px;
+}
+
+.collectionContainer {
+  width: 300px;
+  height: 420px;
+  border-radius: 8px;
+  background-color: white;
+  /* display: grid; */
+  /* padding: 2px; */
+  /* display: flex;
+  flex-direction: column; */
+}
+.collectionContainer > a {
+  height: 100%;
+}
+
+.contContainer {
+  width: 100%;
+  /* height: 100%; */
+  height: 100%;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 2px;
+}
+
+.contContainer > img {
+  /* width: 10; */
+  /* height: 300px; */
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+  height: 240px;
+}
+.text {
+  width: 100%;
+  height: 50px !important;
+  padding: 12px 12px 0 12px;
+  -webkit-line-clamp: 6;
+  height: fit-content;
+}
+
+.contContainer > .title {
+  font-size: 16px;
+}
+
+.userProfileSideMainContainer {
+  width: 400px;
+  gap: 20px;
+  justify-self: flex-end;
+}
+
+.updateDeleteContainer {
+  width: 100%;
+  /* display: inline; */
+  /* flex-direction: row; */
+  justify-content: center;
+  gap: 16px;
+  /* align-items: center; */
+}
+
+.updateDeleteButton {
+  width: 100%;
+  border-radius: 8px;
+  color: white;
+  background-color: #3d233a;
+  border: 2px solid #3d233a;
+}
+
+.updateDeleteButton:hover {
+  background-color: transparent;
+  color: #3d233a;
+}
+
+.updateFormBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    120,
+    120,
+    120,
+    0.5
+  ); /* Set the background color with some transparency */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
