@@ -8,6 +8,7 @@ export default defineConfig({
   build: {
     optimizeDeps: {
       include: ['axios', 'lodash'] // Add the necessary dependencies that need to be pre-bundled
+
     },
     outDir: 'dist',
     emptyOutDir: true,
